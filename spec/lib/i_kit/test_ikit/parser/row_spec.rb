@@ -13,7 +13,7 @@ RSpec.describe IKit::TestIkit::Parser::Row do
       city:       'Krasnoznamensk, Moscow',
       country:    'Russian Federation',
       credential: 'PMP',
-      daet:       '09 Jul 2015',
+      earned:     '09 Jul 2015'.to_date,
       status:     'Active',
     }
   end

@@ -8,7 +8,9 @@ class IKit::TestIkit::Parser::Runner
   def save_resources!
     page = Nokogiri::HTML(get_html.to_s)
     attributes = IKit::TestIkit::Parser::Page.new(page).get_attributes
-    #TODO plase for stroing staff
+    attributes.each do |attrs|
+      IKit::TestIkit::FormObjects::Person.new(attrs).save!
+    end
   end
 
   def get_html
