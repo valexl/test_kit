@@ -18,6 +18,7 @@ class IKit::TestIkit::Parser::Page
         attrs[:name]    = previous_record[:name]    if attrs[:name].blank?
         attrs[:city]    = previous_record[:city]    if attrs[:city].blank?
         attrs[:country] = previous_record[:country] if attrs[:country].blank?
+        previous_record = attrs
         result.push(attrs)
       end
       result
