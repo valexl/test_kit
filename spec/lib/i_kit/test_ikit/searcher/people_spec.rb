@@ -7,10 +7,14 @@ RSpec.describe IKit::TestIkit::Searcher::People do
     Person.__elasticsearch__.delete_index! rescue nil
     Person.__elasticsearch__.create_index!
 
-    @person  = FactoryGirl.create(:person, name: 'Miracle')
+    @person  = FactoryGirl.create(:person, name: 'Miracle', city: 'City', region: 'Region')
 
-    @person_with_the_biggest_name         = FactoryGirl.create(:person, name: 'Arturov Ruslan')
-    @person_with_the_smallest_name        = FactoryGirl.create(:person, name: 'Zaripov Artur')
+    @person_with_the_biggest_name         = FactoryGirl.create(:person, name: 'Arturov Ruslan', city: 'City', region: 'Region')
+    @person_with_the_biggest_city         = FactoryGirl.create(:person, city: 'Atlanta', name: 'Smit', region: 'Region')
+    @person_with_the_biggest_region       = FactoryGirl.create(:person, region: 'Arcanzas', city: 'City', name: 'Smit')
+    @person_with_the_smallest_city        = FactoryGirl.create(:person, city: 'Zalsburg', name: 'Smit', region: 'Region')
+    @person_with_the_smallest_name        = FactoryGirl.create(:person, name: 'Zaripov Artur', city: 'City', region: 'Region')
+    @person_with_the_smallest_region      = FactoryGirl.create(:person, region: 'Zzz', city: 'City', name: 'Smit')
 
     refresh_elasticsearch_cluster
   end
@@ -135,6 +139,34 @@ RSpec.describe IKit::TestIkit::Searcher::People do
       
         results = @searcher.get_records
         expect(results.first).to eq(@person_with_the_smallest_name)
+      end
+
+      it "city.sort with asc direction" do
+        @searcher = IKit::TestIkit::Searcher::People.new '', sort: { 'city.sort' => :asc }
+      
+        results = @searcher.get_records
+        expect(results.first).to eq(@person_with_the_biggest_city)
+      end
+
+      it "city.sort with desc direction" do
+        @searcher = IKit::TestIkit::Searcher::People.new '', sort: { "city.sort" => :desc }
+      
+        results = @searcher.get_records
+        expect(results.first).to eq(@person_with_the_smallest_city)
+      end
+
+      it "region.sort with asc direction" do
+        @searcher = IKit::TestIkit::Searcher::People.new '', sort: { 'region.sort' => :asc }
+      
+        results = @searcher.get_records
+        expect(results.first).to eq(@person_with_the_biggest_region)
+      end
+
+      it "region.sort with desc direction" do
+        @searcher = IKit::TestIkit::Searcher::People.new '', sort: { "region.sort" => :desc }
+      
+        results = @searcher.get_records
+        expect(results.first).to eq(@person_with_the_smallest_region)
       end
     end
   end
