@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+require 'resque/server'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -31,6 +31,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Slim
+gem 'slim'
+gem 'slim-rails'
+
+# For parsing
+gem 'nokogiri'
+
+#For creating works
+gem "resque"
+
 
 group :development do
   gem 'capistrano'
