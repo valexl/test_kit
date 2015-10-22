@@ -1,6 +1,6 @@
 lock '3.4.0'
 
-set :application, 'test_kit'
+set :application, 'test_ikit'
 set :deploy_to, "/var/www/#{fetch(:application)}"
 set :repo_url, 'git@github.com:valexl/test_kit.git'
 set :linked_files, fetch(:linked_files, []).push('config/database.yml')
