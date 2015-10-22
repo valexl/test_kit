@@ -1,0 +1,1 @@
+server '109.120.142.216', user: 'deploy', roles: %w{web app db}

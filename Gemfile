@@ -56,6 +56,10 @@ gem 'jquery-ui-rails', '~>4.2'
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
 
+group :production do
+  #webserver for production
+  gem 'unicorn'
+end
 
 group :development do
   gem 'capistrano'
@@ -66,8 +70,6 @@ group :development do
   # gem 'capistrano-bundler'
   # gem 'capistrano3-nginx_unicorn', git: 'git@github.com:revis0r/capistrano3-nginx_unicorn.git'
 end
-
-
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
