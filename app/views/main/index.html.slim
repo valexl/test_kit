@@ -1,2 +1,21 @@
-h1
-  'Hello
+
+hr
+= link_to 'Click to parse', load_people_path, method: :post, class: 'btn btn-primary btn-lg btn-block'
+hr
+
+table.table.table-bordered#people data-source="#{people_url}"
+  thead
+    tr
+      th style='width: 60px;' data-sortable='false' № 
+      th data-sortable='true' Name
+      th data-sortable='true' City
+      th data-sortable='true' Region
+      th data-sortable='false' Country
+      th data-sortable='false' Credintial
+      th data-sortable='false' Earned
+      th data-sortable='false' Status
+        
+  tbody
+
+coffee:
+  new window.PearsonTable($("table#people"))

@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'main#index'
+  resources :people, only: [:index] do
+    post :load, on: :collection
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

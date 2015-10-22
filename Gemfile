@@ -46,6 +46,16 @@ gem "resque"
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
+#for scheduled
+gem 'whenever', :require => false
+
+#JS Search plugin Datatable js
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+gem 'jquery-ui-rails', '~>4.2'
+
+# Bootstrap
+gem 'bootstrap-sass', '~> 3.2.0'
+
 
 group :development do
   gem 'capistrano'

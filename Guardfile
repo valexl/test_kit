@@ -40,7 +40,6 @@ guard :rspec, cmd: 'bundle exec rspec --drb', :all_on_start => false, :all_after
   
   watch('spec/spec_helper.rb')   { "spec" }
   watch('spec/rails_helper.rb')  { "spec" }
-  watch('spec/rcntec_auth_helper.rb')  { "spec" }
 
   
   # watch(%r{^db/migrate/(\d+).+\.rb})                  { "spec" }
