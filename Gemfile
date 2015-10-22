@@ -42,6 +42,10 @@ gem 'nokogiri'
 #For creating works
 gem "resque"
 
+#For searching in server_side
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+
 
 group :development do
   gem 'capistrano'
