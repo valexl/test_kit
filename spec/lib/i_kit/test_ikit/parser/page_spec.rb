@@ -17,12 +17,12 @@ RSpec.describe IKit::TestIkit::Parser::Page do
         status:     'Active',
       },
       {
-        name: 'Ruslan Abdrakhmanov',
-        city: 'St. Petersburg',
-        country: 'Russian Federation',
+        name:       'Ruslan Abdalov',
+        city:       'Krasnoznamensk, Moscow',
+        country:    'Russian Federation',
         credential: 'PMP',
-        earned: '01 Jul 2010'.to_date,
-        status: 'Active',
+        earned:     '01 Jul 2010'.to_date,
+        status:     'Active',
       },
     ]
   end
