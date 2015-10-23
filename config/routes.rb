@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'main#index'
   resources :people, only: [:index] do
     post :load, on: :collection
+    delete :clear, on: :collection
   end
 
   # Example of regular route:

@@ -1,7 +1,11 @@
 
 hr
-= link_to 'Click to parse', load_people_path, method: :post, class: 'btn btn-primary btn-lg btn-block'
+.btn-group.btn-group-justified role="group" 
+  = link_to 'Click to parse', load_people_path, method: :post, class: 'btn btn-primary btn-lg btn-block'
+  = link_to 'Clear', clear_people_path, method: :delete, class: 'btn btn-danger btn-lg btn-block', data: {confirm: 'Are you sure?'}
 hr
+p.help-block
+   'Сервер слабый - Elasticsearch отваливается по причине нехватки памяти...
 
 table.table.table-bordered#people data-source="#{people_url}"
   thead
